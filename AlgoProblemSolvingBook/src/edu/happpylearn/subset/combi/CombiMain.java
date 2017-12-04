@@ -36,9 +36,9 @@ public class CombiMain {
 		}else if(index == n){
 			return;
 		}else{
+			combi(set, setSize, n, m, index+1);		// when not selected.
 			set[setSize] = index;
 			combi(set, setSize+1, n, m-1, index+1); // when selected
-			combi(set, setSize, n, m, index+1);		// when not selected.
 		}
 	}
 
@@ -54,6 +54,7 @@ public class CombiMain {
 		for(int i=0; i<length; i++){
 			System.out.print(data[i] + " ");
 		}
+		
 		System.out.println();
 	}
 
