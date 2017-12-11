@@ -1,4 +1,4 @@
-package edu.happpylearn.subset.choose;
+package edu.happylearn.subset.choose;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package edu.happpylearn.subset.knapsack;
+package edu.happylearn.subset.knapsack;
 
 import java.util.Scanner;
 

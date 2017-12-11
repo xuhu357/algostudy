@@ -1,4 +1,4 @@
-package edu.happpylearn.subset.partycut;
+package edu.happylearn.subset.partycut;
 
 import java.util.ArrayList;
 import java.util.Scanner;

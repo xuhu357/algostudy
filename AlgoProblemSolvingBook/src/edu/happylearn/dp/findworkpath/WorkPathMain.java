@@ -1,4 +1,4 @@
-package edu.happpylearn.dp.findworkpath;
+package edu.happylearn.dp.findworkpath;
 import java.util.Scanner;
 
 /**

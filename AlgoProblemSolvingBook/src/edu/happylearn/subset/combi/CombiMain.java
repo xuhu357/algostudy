@@ -1,4 +1,4 @@
-package edu.happpylearn.subset.combi;
+package edu.happylearn.subset.combi;
 
 import java.util.Scanner;
 

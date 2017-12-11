@@ -1,4 +1,4 @@
-package edu.happpylearn.maxsubarray;
+package edu.happylearn.maxsubarray;
 import java.util.Scanner;
 /**
  * input data are as follows:
