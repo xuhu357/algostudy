@@ -55,22 +55,24 @@ public class PartyCutMain {
 		}else if(index == n){
 			return;
 		}else{
-			// Point!!! when no element was selected
-			findMinCut(set, setSize, n, m, index+1);		
-			
 			// Point!!! when index was selected. so put index to set[setSize]
 			set[setSize] = index;
 			findMinCut(set, setSize+1, n, m-1, index+1);
+			
+			// Point!!! when no element was selected
+			findMinCut(set, setSize, n, m, index+1);		
+			
 		}  
 	}
 
 	private void evaluateCut(int[] set, int setSize, int n) {
-		//other group member
+		// other group member
 		ArrayList<Integer> group1 = new ArrayList<Integer>();
 		for(int i=0; i<setSize; i++){
 			group1.add(set[i]);
 		}
 		
+		// the other group, not selected
 		ArrayList<Integer> group2 = new ArrayList<Integer>();
 		for(int i=0; i<n; i++){
 			if(!group1.contains(i)){
@@ -97,10 +99,12 @@ public class PartyCutMain {
 		if(cut < minCut){
 			minCut = cut;
 			
+			// when find the better one, then initialize the set. 
 			for(int i=0; i<n; i++){
 				minSet[i] = 0;
 			}
 			
+			// set the proper value into the result
 			for(int i= 0; i<setSize; i++){
 				minSet[set[i]] = 1;
 			}
