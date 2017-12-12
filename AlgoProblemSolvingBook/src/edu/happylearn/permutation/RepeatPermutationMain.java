@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 /**
- * n개의 숫자에서 k개를 중복 불가 순열 나열하기, Stack 버전
+ * n개의 문자열을 입력받고 그 중에서 k개를 중복 불가 순열 나열하기, Stack 버전
  * @author hu.xu
  *
  */
@@ -14,6 +14,7 @@ public class RepeatPermutationMain {
 	int n;
 	int k;
 	Stack<Integer> numStack;
+	String strArr[];
 	
 	public static void main(String[] args) {
 		RepeatPermutationMain m = new RepeatPermutationMain();
@@ -25,6 +26,10 @@ public class RepeatPermutationMain {
 		n = scan.nextInt();
 		k = scan.nextInt();
 		numStack = new Stack<>();
+		strArr = new String[n];
+		for(int i=0; i<n; i++){
+			strArr[i] = scan.next();
+		}
 		scan.close();
 		
 		repeatablePermutation(numStack, n, k, 0);
@@ -48,7 +53,7 @@ public class RepeatPermutationMain {
 	private void printData(Stack<Integer> numStack, int len) {
 		Iterator<Integer> iter = numStack.iterator();
 		while(iter.hasNext()){
-			System.out.print(iter.next()+" ");
+			System.out.print(strArr[iter.next()]+" ");
 		}
 		System.out.println();
 	}
