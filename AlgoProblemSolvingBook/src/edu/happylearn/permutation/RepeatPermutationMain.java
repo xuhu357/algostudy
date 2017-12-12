@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 /**
- * n개의 숫자에서 k개를 중복가능한 순열 나열하기, Stack 버전
+ * n개의 숫자에서 k개를 중복 불가 순열 나열하기, Stack 버전
  * @author hu.xu
  *
  */
@@ -35,8 +35,11 @@ public class RepeatPermutationMain {
 			printData(numStack, len);
 			return;
 		}
-		for(int i=0; i<n; i++){
-			numStack.push(i);
+		for(int index=0; index<n; index++){
+			if(numStack.contains(index)){
+				continue;
+			}
+			numStack.push(index);
 			repeatablePermutation(numStack, n, k, len+1);
 			numStack.pop();
 		}
