@@ -2,6 +2,11 @@ package edu.happylearn.subset.choose;
 
 import java.util.Scanner;
 
+/**
+ * 중복 가능한 조합 출력하기
+ * @author hu.xu
+ *
+ */
 public class ChooseMain {
 	int set[];
 	
@@ -29,9 +34,12 @@ public class ChooseMain {
 		}else if(index == n){	// already hover all the element
 			return;
 		}else{					// set still not full
-			set[setSize] = index;
-			chooseAndPrintNum(set, setSize+1, n, m-1, index+1); // when element selected.
 			chooseAndPrintNum(set, setSize, n, m, index+1);	// when element not selected.
+			
+			/** 중복가능 조합 ? index : index+1 */
+			set[setSize] = index;
+			chooseAndPrintNum(set, setSize+1, n, m-1, index); // when element selected.
+			
 		}
 		
 	}
