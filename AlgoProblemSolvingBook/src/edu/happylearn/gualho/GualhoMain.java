@@ -14,7 +14,7 @@ public class GualhoMain {
 	int N;
 	int toOpen;
 	int toClose;
-	Stack<Integer> stack;
+	Stack<String> stack;
 	int LEFT = 1;
 	int RIGHT =2;
 	
@@ -30,46 +30,39 @@ public class GualhoMain {
 		scan.close();
 		int setLength = 2 * N;
 		stack = new Stack<>();
-		getSolution(stack, 0, setLength, N, N, 0);
+		getSolution(stack, setLength, N, N, 0);
 		
 	}
 	
 	// after select, should be toOpen <= toClose
-	private void getSolution(Stack<Integer> stack, int setSize, int n, int toOpen, int toClose, int index){
+	private void getSolution(Stack<String> stack, int n, int toOpen, int toClose, int index){
 		if(toOpen > toClose){
 			return;
 		}
 		
 		if(toOpen == 0 && toClose == 0){
-			printData(stack, setSize, n);
+			printData(stack);
 		}else if(index == n){
 			return;
 		}else{
 			// when open selected.
-			stack.push(index);
-			getSolution(stack, setSize+1, n, toOpen-1, toClose, index+1);
+			stack.push("(");
+			getSolution(stack, n, toOpen-1, toClose, index+1);
+			stack.pop();
 			
 			// when open is not selected.
+			stack.push(")");
+			getSolution(stack, n, toOpen, toClose-1, index+1);
 			stack.pop();
-			getSolution(stack, setSize, n, toOpen, toClose-1, index+1);
 		}
 	}
 
-	private void printData(Stack<Integer> stack, int setSize, int n) {
-		int arr[] = new int[n];
-		
-		Iterator<Integer> iter = stack.iterator();
+	private void printData(Stack<String> stack) {
+		Iterator<String> iter = stack.iterator();
 		while(iter.hasNext()){
-			arr[iter.next()] = 1;
+			System.out.print(iter.next());
 		}
 		
-		for(int i=0; i<n; i++){
-			if(arr[i] == 1){
-				System.out.print("(");
-			}else{
-				System.out.print(")");
-			}
-		}
 		System.out.println();
 		
 	}
