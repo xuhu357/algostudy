@@ -31,18 +31,22 @@ public class DFSGraph {
 		
 		visited = new boolean[nodeNum];
 		
-		dfs(2);
+		dfs(0);
 	}
 
 	private void dfs(int here) {
-		System.out.print(here+" ");
 		visited[here] = true;
 		List<Integer> adjNodes = adjMap.get(here);
-		for (Integer nextNode : adjNodes) {
-			if(visited[nextNode] == false){
-				dfs(nextNode);
+		if(adjNodes != null){
+			for (Integer nextNode : adjNodes) {
+				if(visited[nextNode] == false){
+					dfs(nextNode);
+				}
 			}
 		}
+		
+		// print the result in reverse order.
+		System.out.print(here+" ");
 		
 	}
 
