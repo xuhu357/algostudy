@@ -43,7 +43,13 @@ public class MaximumSubArrayMain {
 		int resRight = getMaximumSubArray(arr, mid+1, high);
 		int resCross = getMaximumCrossArray(arr, low, mid, high);
 		
-		return max(resLeft, resRight, resCross);
+		if(resLeft >= resRight && resLeft >= resCross){
+			return resLeft;
+		}else if(resRight >= resLeft && resRight >= resCross){
+			return resRight;
+		}else{
+			return resCross;
+		}
 	}
 
 	private int getMaximumCrossArray(int[] arr, int low, int mid, int high) {
