@@ -35,15 +35,19 @@ public class DFSGraph {
 	}
 
 	private void dfs(int here) {
-		System.out.print(here+" ");
 		visited[here] = true;
 		List<Integer> adjNodes = adjMap.get(here);
-		for (Integer nextNode : adjNodes) {
-			if(visited[nextNode] == false){
-				dfs(nextNode);
+
+		if(adjNodes != null){	// check null point
+			for (Integer nextNode : adjNodes) {
+				if(visited[nextNode] == false){
+					dfs(nextNode);
+				}
 			}
 		}
 		
+		// print in reversed order.
+		System.out.print(here+" ");
 	}
 
 	private void addEdge(int src, int dest) {
