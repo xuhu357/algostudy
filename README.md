@@ -1,2 +1,2 @@
 # algostudy
-## The repository for uploading algorithm problem.
+## The repository for algorithm problem solving. 
