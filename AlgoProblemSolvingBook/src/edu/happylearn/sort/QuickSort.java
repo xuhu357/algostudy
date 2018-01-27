@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 /**
  * QuickSort algorithm
+ * ver1: Take the first element of the array as the pivot
  * @author hu.xu
  *
  */
@@ -29,6 +30,12 @@ public class QuickSort {
 		System.out.println(Arrays.toString(arr));
 	}
 
+	/**
+	 * Quick sort algorithm
+	 * @param arr	the array to sort
+	 * @param start	the begin index
+	 * @param end	the end index
+	 */
 	private void quickSort(int[] arr, int start, int end) {
 		if(start > end){
 			return;
@@ -39,6 +46,13 @@ public class QuickSort {
 		quickSort(arr, p+1, end);
 	}
 
+	/**
+	 * Take the first element of the array as the pivot 
+	 * @param arr	the array to sort
+	 * @param start	begin index
+	 * @param end	end index	
+	 * @return the index to partition
+	 */
 	private int partition(int[] arr, int start, int end) {
 		
 		if(start == end){
