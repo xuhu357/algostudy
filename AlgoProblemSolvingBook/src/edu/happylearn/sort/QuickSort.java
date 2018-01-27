@@ -1,16 +1,18 @@
 package edu.happylearn.sort;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
  * QuickSort algorithm
- * ver1: Take the first element of the array as the pivot
+ * ver2: Select random index element of the array as the pivot
  * @author hu.xu
  *
  */
 public class QuickSort {
 	int arr[];
+	Random random = new Random();
 	
 	public static void main(String[] args) {
 		QuickSort m = new QuickSort();
@@ -41,8 +43,12 @@ public class QuickSort {
 			return;
 		}
 		
+		if(end-start <=1){
+			return;
+		}
+		
 		int p = partition(arr, start, end);
-		quickSort(arr, start, p-1);
+		quickSort(arr, start, p); // fix index bug.
 		quickSort(arr, p+1, end);
 	}
 
@@ -58,6 +64,12 @@ public class QuickSort {
 		if(start == end){
 			return start;
 		}
+		
+		//TODO swap the first element and the random index.
+		int randomIndex = random.nextInt(end-start);
+		int tempX = arr[start];
+		arr[start] = arr[randomIndex];
+		arr[randomIndex] = tempX;
 		
 		int base = arr[start];
 		int p = start;
