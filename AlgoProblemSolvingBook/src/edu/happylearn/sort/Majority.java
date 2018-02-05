@@ -10,6 +10,7 @@ import java.util.Scanner;
  */
 public class Majority {
 	Map<Integer, Integer> countMap;
+	int[] arr;
 	
 	public Majority() {
 		countMap = new HashMap<Integer, Integer>();
@@ -17,7 +18,34 @@ public class Majority {
 	
 	public static void main(String[] args) {
 		Majority m = new Majority();
-		m.solve();
+		m.solve2();
+	}
+	
+	private void solve2(){
+		QuickSort q = new QuickSort();
+		int count = 0;
+		Scanner scan = new Scanner(System.in);
+		int N = scan.nextInt();
+		arr = new int[N];
+		
+		for(int i=0; i<N; i++){
+			arr[i] = scan.nextInt();
+		}
+		
+		q.quickSort(arr, 0, N);
+		for(int i=0; i<N; i++){
+			if(arr[i] == arr[N/2]){
+				count++;
+			}
+		}
+		
+		if(count > (N/2)){
+			System.out.println("Majority element is " + arr[N/2]);
+		}else{
+			System.out.println("No Majority element.");
+		}
+		
+		scan.close();
 	}
 
 	private void solve() {

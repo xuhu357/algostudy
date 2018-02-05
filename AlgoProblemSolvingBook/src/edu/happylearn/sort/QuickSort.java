@@ -38,7 +38,7 @@ public class QuickSort {
 	 * @param start	the begin index
 	 * @param end	the end index
 	 */
-	private void quickSort(int[] arr, int start, int end) {
+	public void quickSort(int[] arr, int start, int end) {
 		if(start > end){
 			return;
 		}
@@ -65,7 +65,6 @@ public class QuickSort {
 			return start;
 		}
 		
-		//TODO swap the first element and the random index.
 		int randomIndex = random.nextInt(end-start);
 		int tempX = arr[start];
 		arr[start] = arr[randomIndex];
